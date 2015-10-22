@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %title Health Search
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = favicon_link_tag "fav.png"
+    = csrf_meta_tags
+  %body#page-top{"data-spy" => "scroll", "data-target" => ".navbar-fixed-top"}
+    / Navigation
+    %nav.navbar{:role => "navigation"}
+      .container
+        .row
+          .navbar-header
+            %button.navbar-toggle{"data-target" => ".navbar-main-collapse", "data-toggle" => "collapse", :type => "button"}
+              %i.fa.fa-bars
+            %a.navbar-brand.page-scroll{:href => "#{root_path}"}
+              =image_tag "mdm.png", class: "logo"
+              Health Search
+          / Collect the nav links, forms, and other content for toggling
+          .collapse.navbar-collapse.navbar-right.navbar-main-collapse
+            %ul.nav.navbar-nav
+              / Hidden li included to remove active class from about link when scrolled up past about section
+              %li.hidden
+                %a{:href => "#page-top"}
+                %li
+                  =link_to "Clinics", clinics_path
+
+    - if notice
+      %p.alert.alert-success= notice
+    - if alert
+      %p.alert.alert-danger= alert
+    
+    .container.show
+      = yield

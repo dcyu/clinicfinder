@@ -1,0 +1,45 @@
+.row
+  .col-md-7
+    .panel.panel-info
+      .panel-body
+        = form_for @clinic do |f|
+          - if @clinic.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@clinic.errors.count, "error")} prohibited this clinic from being saved:"
+              %ul
+                - @clinic.errors.full_messages.each do |msg|
+                  %li= msg
+
+          .form-group
+            = f.label :name
+            = f.text_field :name, class: "form-control"
+          .form-group
+            = f.label :organization_id
+            = f.number_field :organization_id, class: "form-control"
+          .form-group
+            = f.label :address
+            = f.text_area :address, class: "form-control"
+          .form-group
+            = f.label :lat, "Latitude"
+            = f.text_field :lat, class: "form-control"
+          .form-group
+            = f.label :lng, "Longitude"
+            = f.text_field :lng, class: "form-control"
+          .form-group
+            = f.label :country
+            = f.text_field :country, class: "form-control"
+          .form-group
+            = f.label :operating_hours
+            = f.text_area :operating_hours, class: "form-control"
+          .form-group
+            = f.label :cost
+            = f.text_field :cost, class: "form-control"
+          .form-group
+            = f.label :scheduling
+            = f.text_field :scheduling, class: "form-control"
+          .form-group
+            = f.label :eligibility
+            = f.text_field :eligibility, class: "form-control"
+
+          .actions
+            = f.submit 'Save', class: "btn btn-success"

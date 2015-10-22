@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @clinic.name
+%p
+  %b Organization:
+  = @clinic.organization_id
+%p
+  %b Lat:
+  = @clinic.lat
+%p
+  %b Lng:
+  = @clinic.lng
+%p
+  %b Address:
+  = @clinic.address
+%p
+  %b Operating hours:
+  = @clinic.operating_hours
+%p
+  %b Cost:
+  = @clinic.cost
+%p
+  %b Scheduling:
+  = @clinic.scheduling
+%p
+  %b Eligibility:
+  = @clinic.eligibility
+%p
+  %b Country:
+  = @clinic.country
+
+= link_to 'Edit', edit_clinic_path(@clinic)
+\|
+= link_to 'Back', clinics_path

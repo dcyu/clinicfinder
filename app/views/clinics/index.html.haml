@@ -1,0 +1,62 @@
+.row
+  .col-md-12.text-center
+    %a.btn.btn-primary.btn-large{:href => "#"}
+      %h1
+        Find Nearest Health Clinic
+
+%br/
+%br/
+.row
+  .col-md-12.text-center
+    %a.btn.btn-info.btn-large{:href => "#{clinics_path}"}
+      %h3 List of All Clinics
+
+
+%h4=@user_ip
+
+%h2 All Clinics
+
+
+#clinics
+  / %input.search{:placeholder => "Search"}/
+  %br/
+  %br/
+
+
+
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th
+            %a.sort{"data-sort" => "name", href: "#"} Name
+          %th
+            %a.sort{"data-sort" => "address", href: "#"} Address
+          %th
+            %a.sort{"data-sort" => "hours", href: "#"} Hours
+          %th
+            %a.sort{"data-sort" => "distance", href: "#"} Approximate Distance
+          %th
+
+      %tbody.list
+        -@clinics.each do |clinic|
+          %tr
+            %td.name=link_to clinic.name, clinic
+            %td.address
+              -if clinic.address
+                =link_to clinic.address, clinic
+            %td.hours=link_to clinic.operating_hours, clinic
+            %td.distance=link_to clinic.lat, clinic
+            %td= link_to 'View Details', clinic
+
+  %ul.pagination
+
+:javascript
+  var options = {
+    valueNames: [ 'name', 'address', 'hours', 'distance' ],
+    plugins: [ListPagination({})]
+  };
+
+  var userList = new List('clinics', options);
+
+= link_to 'New Clinic', new_clinic_path
