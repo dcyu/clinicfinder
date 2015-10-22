@@ -1,0 +1,43 @@
+
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV["google_key"]}&sensor=false", :type => "text/javascript"}
+
+
+%script
+  google.maps.event.addDomListener(window, 'load', init);
+
+  function init() {
+  // Basic options for a simple Google Map
+  // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+  var mapOptions = {
+  // How zoomed in you want the map to start at (always required)
+  zoom: 10,
+
+  // The latitude and longitude to center the map (always required)
+  center: new google.maps.LatLng(#{@clinic.lat}, #{@clinic.lng}),
+
+  // Disables the default Google Maps UI components
+  disableDefaultUI: true,
+  scrollwheel: true,
+  draggable: true,
+  zoomControl: true
+  }
+
+  // How you would like to style the map. 
+  // This is where you would paste any style found on Snazzy Maps.
+  
+
+  // Get the HTML DOM element that will contain your map 
+  // We are using a div with id="map" seen below in the <body>
+  var mapElement = document.getElementById('map');
+
+  // Create the Google Map using out element and options defined above
+  var map = new google.maps.Map(mapElement, mapOptions);
+
+  // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
+  var myLatLng = new google.maps.LatLng("#{@clinic.lat}", #{@clinic.lng});
+  var marker#{@clinic.id} = new google.maps.Marker({
+  position: myLatLng,
+  map: map
+  });
+
+  }

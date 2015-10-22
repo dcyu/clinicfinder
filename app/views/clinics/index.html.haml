@@ -1,21 +1,9 @@
-.row
-  .col-md-12.text-center
-    %a.btn.btn-primary.btn-large{:href => "#"}
-      %h1
-        Find Nearest Health Clinic
-
-%br/
-%br/
-.row
-  .col-md-12.text-center
-    %a.btn.btn-info.btn-large{:href => "#{clinics_path}"}
-      %h3 List of All Clinics
-
-
-%h4=@user_ip
-
 %h2 All Clinics
 
+-if @current_location
+  %h4
+    Approximate Current Location:
+    #{@current_location.city_name}, #{@current_location.country_name}
 
 #clinics
   / %input.search{:placeholder => "Search"}/
@@ -31,23 +19,13 @@
           %th
             %a.sort{"data-sort" => "name", href: "#"} Name
           %th
-            %a.sort{"data-sort" => "address", href: "#"} Address
-          %th
-            %a.sort{"data-sort" => "hours", href: "#"} Hours
-          %th
-            %a.sort{"data-sort" => "distance", href: "#"} Approximate Distance
-          %th
+            %a.sort{"data-sort" => "distance", href: "#"}  Distance
 
       %tbody.list
         -@clinics.each do |clinic|
           %tr
-            %td.name=link_to clinic.name, clinic
-            %td.address
-              -if clinic.address
-                =link_to clinic.address, clinic
-            %td.hours=link_to clinic.operating_hours, clinic
-            %td.distance=link_to clinic.lat, clinic
-            %td= link_to 'View Details', clinic
+            %td.name=link_to clinic.name, clinic, 'data-no-turbolink' => true
+            %td.distance=link_to "#{Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)} km", clinic, 'data-no-turbolink' => true
 
   %ul.pagination
 
@@ -59,4 +37,4 @@
 
   var userList = new List('clinics', options);
 
-= link_to 'New Clinic', new_clinic_path
+= link_to 'Add New Clinic', new_clinic_path

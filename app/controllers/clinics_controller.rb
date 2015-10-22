@@ -1,16 +1,26 @@
 class ClinicsController < ApplicationController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
 
+  def home
+  end
+
   # GET /clinics
   # GET /clinics.json
   def index
+    require 'geoip'
+
     @clinics = Clinic.all
-    @user_ip = request.remote_ip
+    # user_ip = request.remote_ip
+    user_ip = "50.249.25.145"
+
+    @current_location = GeoIP.new('GeoLiteCity.dat').city(user_ip)
+    
   end
 
   # GET /clinics/1
   # GET /clinics/1.json
   def show
+
   end
 
   # GET /clinics/new
