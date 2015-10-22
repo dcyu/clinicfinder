@@ -16,7 +16,15 @@
               %i.fa.fa-bars
             %a.navbar-brand.page-scroll{:href => "#{root_path}"}
               =image_tag "mdm.png", class: "logo"
-              Health Search
+            .navlink.pull-left
+              =link_to "Health Search", root_path
+            
+            .navlink.pull-right
+              -if I18n.locale == :ar
+                %a{:href => "?locale=en"} English
+              -else
+                %a{:href => "?locale=ar"} العربية
+
           / Collect the nav links, forms, and other content for toggling
           .collapse.navbar-collapse.navbar-right.navbar-main-collapse
             %ul.nav.navbar-nav
@@ -24,7 +32,6 @@
               %li.hidden
                 %a{:href => "#page-top"}
                 %li
-                  =link_to "Clinics", clinics_path
 
     - if notice
       %p.alert.alert-success= notice
