@@ -3,26 +3,30 @@
 #map
 =render 'map'
 
-%p
-  %b Address:
-  = @clinic.address
+.row
+  .col-md-6.col-md-offset-3    
+    .panel.panel-info
+      .panel-body
+        %p
+          %b Address:
+          = @clinic.address
 
--if @clinic.organization_id
-  %p
-    %b Organization:
-    = @clinic.organization_id
-%br/
-%p
-  %b Operating hours:
-  = @clinic.operating_hours
-%p
-  %b Cost:
-  = @clinic.cost
-%p
-  %b Scheduling:
-  = @clinic.scheduling
-%p
-  %b Eligibility:
-  = @clinic.eligibility
+        -if @clinic.organization
+          %p
+            %b Organization:
+            = @clinic.organization
+        %br/
+        %p
+          %b Operating hours:
+          = @clinic.operating_hours
+        %p
+          %b Cost:
+          =t(@clinic.cost)
+        %p
+          %b Scheduling:
+          = @clinic.scheduling
+        %p
+          %b Eligibility:
+          = @clinic.eligibility
 
-= link_to 'Edit', edit_clinic_path(@clinic)
+        = link_to 'Edit', edit_clinic_path(@clinic)

@@ -2,30 +2,20 @@
 
 -if @current_location
   %h4
-    Approximate Current Location:
+    Current Location:
     #{@current_location.city_name}, #{@current_location.country_name}
 
 #clinics
   / %input.search{:placeholder => "Search"}/
-  %br/
-  %br/
-
-
-
-  .table-responsive
-    %table.table
-      %thead
-        %tr
-          %th
-            %a.sort{"data-sort" => "name", href: "#"} Name
-          %th
-            %a.sort{"data-sort" => "distance", href: "#"}  Distance
-
-      %tbody.list
-        -@clinics.each do |clinic|
-          %tr
-            %td.name=link_to clinic.name, clinic, 'data-no-turbolink' => true
-            %td.distance=link_to "#{Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)} km", clinic, 'data-no-turbolink' => true
+  
+  %ul.list
+    -@clinics.each do |clinic|
+      %li
+        %a.list-link{:href => "#{clinic_path(clinic)}", 'data-no-turbolink' => true}
+          %span.name
+            =clinic.name
+          %span.distance
+            ="#{Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)} km"
 
   %ul.pagination
 

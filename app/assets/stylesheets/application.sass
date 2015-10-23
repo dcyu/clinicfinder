@@ -1,5 +1,10 @@
 @import "jquery-ui"
 @import "bootstrap"
+@import "theme"
+
+body
+  background: #17baef
+  color: #fff
 
 
 p
@@ -7,11 +12,61 @@ p
 th, td
   font-size: 1.2em
 
+.list 
+  padding: 0
+  margin: 0
+  li
+    width: 100%
+    list-style-type: none
+    margin: 50px 0
+    .list-link
+      width: 100%
+      display: block
+      color: #fff
+      margin-bottom: 2em
+      float: left
+      span
+        padding: 10px 2%
+        font-weight: bold
+        font-family: 'Montserrat', sans-serif
+        display: inline-block
+        float: left
+      .name
+        width: 70%
+        background: #074f66
+        -webkit-border-top-left-radius: 4px
+        -moz-border-top-left-radius: 4px
+        -ms-border-top-left-radius: 4px
+        -o-border-top-left-radius: 4px
+        border-top-left-radius: 4px
+        -webkit-border-bottom-left-radius: 4px
+        -moz-border-bottom-left-radius: 4px
+        -ms-border-bottom-left-radius: 4px
+        -o-border-bottom-left-radius: 4px
+        border-bottom-left-radius: 4px
+      .distance
+        width: 26%
+        background: #eebf3f
+        -webkit-border-top-right-radius: 4px
+        -moz-border-top-right-radius: 4px
+        -ms-border-top-right-radius: 4px
+        -o-border-top-right-radius: 4px
+        border-top-right-radius: 4px
+        -webkit-border-bottom-right-radius: 4px
+        -moz-border-bottom-right-radius: 4px
+        -ms-border-bottom-right-radius: 4px
+        -o-border-bottom-right-radius: 4px
+        border-bottom-right-radius: 4px
+      &:hover
+        text-decoration: none
+
 
 .navlink
   height: 100%
   display: table
   a
+    font-family: 'Montserrat', sans-serif
+    font-weight: 700
     display: table-cell
     vertical-align: middle
     font-size: 1.5em
@@ -26,7 +81,7 @@ th, td
   height: 300px
 
 .navbar
-  background: #002957
+  // background: #0725B2
 
 .navbar-header
   height: 100px
@@ -42,6 +97,15 @@ th, td
     display: inline-block
     margin-right: 10px
 
+.panel
+  color: #17baef
+
 .btn
   h1, h2, h3, h4
     margin-top: 10px
+    color: #fff
+
+table
+  td
+    background: #fff
+    padding: 50px

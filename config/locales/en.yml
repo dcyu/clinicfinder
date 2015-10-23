@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  charged: "Charged"
   find_clinic: "Find Nearest Health Clinic"
+  free: "Free"
   list_of_clinics: "List of All Clinics"
   home_description: "Health Search is a website to help find the nearest health clinic, specifically intended for refugees and displaced people enroute through Europe who require medical services."
+

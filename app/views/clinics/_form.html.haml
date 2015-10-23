@@ -1,3 +1,5 @@
+
+
 .row
   .col-md-7
     .panel.panel-info
@@ -14,8 +16,8 @@
             = f.label :name
             = f.text_field :name, class: "form-control"
           .form-group
-            = f.label :organization_id
-            = f.number_field :organization_id, class: "form-control"
+            = f.label :organization, "Operating Organization"
+            = f.text_field :organization, class: "form-control"
           .form-group
             = f.label :address
             = f.text_area :address, class: "form-control"
@@ -27,13 +29,14 @@
             = f.text_field :lng, class: "form-control"
           .form-group
             = f.label :country
-            = f.text_field :country, class: "form-control"
+            %br/
+            = f.select :country, options_for_select(@countries), {}, {class: "form-control"}
           .form-group
             = f.label :operating_hours
             = f.text_area :operating_hours, class: "form-control"
           .form-group
             = f.label :cost
-            = f.text_field :cost, class: "form-control"
+            = f.select :cost, options_for_select([[t("free"), "free"], [t("charged"), "charged"]]), {}, {class: "form-control"}
           .form-group
             = f.label :scheduling
             = f.text_field :scheduling, class: "form-control"

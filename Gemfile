@@ -25,6 +25,7 @@ gem 'jquery-turbolinks'
 
 gem 'geoip'
 gem "geocoder"
+gem 'i18n-country-translations'
 
 gem 'figaro'
 

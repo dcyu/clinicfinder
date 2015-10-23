@@ -6,6 +6,8 @@
     = javascript_include_tag 'application'
     = favicon_link_tag "fav.png"
     = csrf_meta_tags
+    %link{:href => "http://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}/
   %body#page-top{"data-spy" => "scroll", "data-target" => ".navbar-fixed-top"}
     / Navigation
     %nav.navbar{:role => "navigation"}
@@ -17,7 +19,7 @@
             %a.navbar-brand.page-scroll{:href => "#{root_path}"}
               =image_tag "mdm.png", class: "logo"
             .navlink.pull-left
-              =link_to "Health Search", root_path
+              =link_to "HealthSearch", root_path
             
             .navlink.pull-right
               -if I18n.locale == :ar
@@ -38,5 +40,5 @@
     - if alert
       %p.alert.alert-danger= alert
     
-    .container.show
+    .container
       = yield
