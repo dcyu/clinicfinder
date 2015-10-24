@@ -1,7 +1,15 @@
 ar:
+  address: 'عنوان'
+  all_clinics: "كل عيادات"
+  appointment: "موعد"
   charged: "مدفوع"
+  cost: "ثمن"
+  current_location: 'الموقع الحالي'
+  eligibility: 'الأهلية للمرضى'
   find_clinic: "تجد أقرب عيادة الصحة"
   free: "مجاني"
   list_of_clinics: "قائمة بكل العيادات"
   home_description: "هذا هو موقع للمساعدة في العثور على أقرب عيادة الصحة، تهدف على وجه التحديد للاجئين والنازحين في طريقها عبر أوروبا الذين يحتاجون إلى خدمات طبية."
+  km: 'كم'
+  operating_hours: 'ساعات العمل'
 

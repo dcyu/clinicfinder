@@ -8,7 +8,7 @@
     .panel.panel-info
       .panel-body
         %p
-          %b Address:
+          %b=t('address')+':'
           = @clinic.address
 
         -if @clinic.organization
@@ -17,16 +17,16 @@
             = @clinic.organization
         %br/
         %p
-          %b Operating hours:
+          %b=t('operating_hours')+':'
           = @clinic.operating_hours
         %p
-          %b Cost:
+          %b=t('cost')+':'
           =t(@clinic.cost)
         %p
-          %b Scheduling:
+          %b=t('appointment')+':'
           = @clinic.scheduling
         %p
-          %b Eligibility:
+          %b=t('eligibility')+':'
           = @clinic.eligibility
 
         = link_to 'Edit', edit_clinic_path(@clinic)

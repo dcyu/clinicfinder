@@ -1,8 +1,8 @@
-%h2 All Clinics
+%h2=t('all_clinics')
 
 -if @current_location
   %h4
-    Current Location:
+    =t('current_location')+':'
     #{@current_location.city_name}, #{@current_location.country_name}
 
 #clinics
@@ -15,7 +15,8 @@
           %span.name
             =clinic.name
           %span.distance
-            ="#{Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)} km"
+            =Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)
+            =t('km')
 
   %ul.pagination
 
