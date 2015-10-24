@@ -21,11 +21,17 @@
             .navlink.pull-left
               =link_to "HealthSearch", root_path
             
-            .navlink.pull-right
+            .navlink.pull-right.languages
               -if I18n.locale == :ar
                 %a{:href => "?locale=en"} English
+                %a{:href => "?locale=fa"} فارسی
+              -elsif I18n.locale == :fa
+                %a{:href => "?locale=en"} English
+                %a{:href => "?locale=ar"} العربية
               -else
                 %a{:href => "?locale=ar"} العربية
+                %a{:href => "?locale=fa"} فارسی
+
 
           / Collect the nav links, forms, and other content for toggling
           .collapse.navbar-collapse.navbar-right.navbar-main-collapse
