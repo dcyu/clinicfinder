@@ -19,6 +19,7 @@
 //= require list.pagination.js
 //= require jquery_nested_form
 //= require autocomplete-rails
+//= require bootstrap
 //= require_tree .
 
 

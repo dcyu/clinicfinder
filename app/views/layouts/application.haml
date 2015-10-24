@@ -1,7 +1,7 @@
 !!!
 %html
   %head
-    %title Health Search
+    %title ClinicFinder
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = favicon_link_tag "fav.png"
@@ -14,32 +14,32 @@
       .container
         .row
           .navbar-header
-            %button.navbar-toggle{"data-target" => ".navbar-main-collapse", "data-toggle" => "collapse", :type => "button"}
-              %i.fa.fa-bars
             %a.navbar-brand.page-scroll{:href => "#{root_path}"}
               =image_tag "mdm.png", class: "logo"
             .navlink.pull-left
-              =link_to "HealthSearch", root_path
+              =link_to "ClinicFinder", root_path
             
             .navlink.pull-right.languages
-              -if I18n.locale == :ar
-                %a{:href => "?locale=en"} English
-                %a{:href => "?locale=fa"} فارسی
-              -elsif I18n.locale == :fa
-                %a{:href => "?locale=en"} English
-                %a{:href => "?locale=ar"} العربية
-              -else
-                %a{:href => "?locale=ar"} العربية
-                %a{:href => "?locale=fa"} فارسی
+              .btn-group
+                %button.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  %i.fa.fa-language.fa-4x
+                %ul.dropdown-menu.dropdown-menu-right
+                  -if I18n.locale == :ar
+                    %li
+                      %a{:href => "?locale=en"} English
+                    %li
+                      %a{:href => "?locale=fa"} فارسی
+                  -elsif I18n.locale == :fa
+                    %li
+                      %a{:href => "?locale=en"} English
+                    %li
+                      %a{:href => "?locale=ar"} العربية
+                  -else
+                    %li
+                      %a{:href => "?locale=ar"} العربية
+                    %li
+                      %a{:href => "?locale=fa"} فارسی
 
-
-          / Collect the nav links, forms, and other content for toggling
-          .collapse.navbar-collapse.navbar-right.navbar-main-collapse
-            %ul.nav.navbar-nav
-              / Hidden li included to remove active class from about link when scrolled up past about section
-              %li.hidden
-                %a{:href => "#page-top"}
-                %li
 
     - if notice
       %p.alert.alert-success= notice
