@@ -23,6 +23,7 @@ ar:
   not_required: "غير مطلوب"
   organization: "منظمة التشغيل"
   operating_hours: "ساعات العمل"
+  required: "مطلوب"
   sat: "السبت"
   save: "حفظ"
   sun: "الأحد"

@@ -16,6 +16,7 @@ body
   margin-top: 1em
   width: 150px
 
+
 p
   font-size: 1.4em
 th, td
@@ -121,6 +122,11 @@ th, td
 
 .panel
   color: #17baef
+  &.dark
+    color: #fff
+    background: #074f66
+    border: none
+    border-radius: 0
 
 .btn
   h1, h2, h3, h4
@@ -130,10 +136,11 @@ th, td
 .shift
   display: block
   margin-left: 10%
-
-.times
-  text-align: left
-  margin: 0 10px
+  .day
+    display: inline-block
+    width: 150px
+  .times
+    text-align: left
 
 table
   td

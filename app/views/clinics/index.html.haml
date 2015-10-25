@@ -9,13 +9,13 @@
   / %input.search{:placeholder => "Search"}/
   
   %ul.list
-    -@clinics.each do |clinic|
+    -@clinics_sorted_by_distance.each do |clinic|
       %li
-        %a.list-link{:href => "#{clinic_path(clinic)}", 'data-no-turbolink' => true}
+        %a.list-link{:href => "#{clinic_path(clinic.first)}", 'data-no-turbolink' => true}
           %span.name
-            =clinic.name
+            =clinic.first.name
           %span.distance
-            =Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)
+            =clinic.last
             =t('km')
 
   %ul.pagination

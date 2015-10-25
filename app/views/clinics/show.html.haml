@@ -7,7 +7,7 @@
 
 .row
   .col-md-12
-    .panel.panel-info
+    .panel.panel-info.dark
       .panel-body
         %p
           %b
@@ -24,7 +24,8 @@
           %b=t('operating_hours')+':'
           -@shifts.each do |shift|
             %span.shift
-              #{t(shift.day)}
+              %span.day
+                =t(shift.day)
               %span.times
                 #{shift.opening_time}-#{shift.closing_time}
         %p

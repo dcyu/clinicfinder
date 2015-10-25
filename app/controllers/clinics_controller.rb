@@ -16,6 +16,13 @@ class ClinicsController < ApplicationController
     user_ip = "50.249.25.145"
 
     @current_location = GeoIP.new('GeoLiteCity.dat').city(user_ip)
+
+    @clinics_sorted_by_distance = []
+    @clinics.each do |clinic|
+      @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([@current_location.latitude, @current_location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)]
+    end
+    @clinics_sorted_by_distance.sort_by!{|clinic| clinic.last}
+
     
   end
 
