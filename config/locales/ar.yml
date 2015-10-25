@@ -1,15 +1,33 @@
 ar:
-  address: 'عنوان'
+  address: "عنوان"
+  add_clinic: "إضافة عيادة →"
   all_clinics: "كل عيادات"
+  all_welcome: "متاحة للجميع"
   appointment: "موعد"
   charged: "مدفوع"
+  clinic_clarifier: "(اسم العيادة)"
   cost: "ثمن"
-  current_location: 'الموقع الحالي'
-  eligibility: 'الأهلية للمرضى'
+  country: "بلد"
+  current_location: "الموقع الحالي"
+  eligibility: "الأهلية للمرضى"
   find_clinic: "تجد أقرب عيادة الصحة"
   free: "مجاني"
+  fri: "الجمعة"
   list_of_clinics: "قائمة بكل العيادات"
   home_description: "هذا هو موقع للمساعدة في العثور على أقرب عيادة الصحة، تهدف على وجه التحديد للاجئين والنازحين في طريقها عبر أوروبا الذين يحتاجون إلى خدمات طبية."
-  km: 'كم'
-  operating_hours: 'ساعات العمل'
-
+  km: "كم"
+  latitude: "عرض جغرافي"
+  longitude: "طول جغرافي"
+  mon: "الإثنين"
+  name: "اسم"
+  not_required: "غير مطلوب"
+  organization: "منظمة التشغيل"
+  operating_hours: "ساعات العمل"
+  sat: "السبت"
+  save: "حفظ"
+  sun: "الأحد"
+  tue: "الثلاثاء"
+  thu: "الخميس"
+  to: "حتى"
+  wed: "الأربعاء"
+  women_children: "النساء والأطفال"

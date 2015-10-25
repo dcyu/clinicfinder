@@ -1,4 +1,6 @@
-%h2=@clinic.name
+%h2
+  =@clinic.name
+  =t('clinic_clarifier')
 
 #map
 =render 'map'
@@ -8,27 +10,35 @@
     .panel.panel-info
       .panel-body
         %p
-          %b=t('address')+':'
+          %b
+            =t('address')+':'
+          %br/
           = @clinic.address
 
-        -if @clinic.organization
+        -if @clinic.organization.present?
           %p
             %b Organization:
             = @clinic.organization
-        %br/
+          %br/
         %p
           %b=t('operating_hours')+':'
           -@shifts.each do |shift|
             %span.shift
-              #{t(shift.day)}, #{shift.opening_time}-#{shift.closing_time}
+              #{t(shift.day)}
+              %span.times
+                #{shift.opening_time}-#{shift.closing_time}
         %p
           %b=t('cost')+':'
           =t(@clinic.cost)
         %p
           %b=t('appointment')+':'
-          = @clinic.scheduling
+          =t(@clinic.scheduling)
         %p
           %b=t('eligibility')+':'
-          = @clinic.eligibility
+          =t(@clinic.eligibility)
 
-        = link_to 'Edit', edit_clinic_path(@clinic)
+.row
+  .col-md-12.text-center
+    %a.btn{:href => "#{edit_clinic_path(@clinic)}"}
+      %h3
+        =t('edit_clinic')

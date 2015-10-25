@@ -21,16 +21,34 @@
 
 fa:
   address: 'نشانی'
+  add_clinic: "اضافه کردن درمانگاه →"
   all_clinics: "تمام درمانگاه"
+  all_welcome: "در دسترس برای همه"
   appointment: "وقت ملاقات"
   charged: "شارژ"
+  clinic_clarifier: "(درمانگاه نام)"
   cost: "هزینه"
+  country: "کشور"
   current_location: "موقعیت فعلی"
   eligibility: "واجد شرایط بودن بیمار"
   find_clinic: "یافتن نزدیکترین کلینیک بهداشت"
   free: "آزاد"
+  fri: "جمعه"
   list_of_clinics: "فهرست همه درمانگاه"
   home_description: "این وب سایت برای کمک به پیدا کردن نزدیکترین کلینیک صحی، به طور خاص برای پناهندگان در نظر گرفته شده و مردم راه عزیمت از طریق اروپا که نیاز به خدمات پزشکی آواره است."
   km: 'کیلومتر'
+  latitude: "عرض جغرافیایی"
+  longitude: "طول جغرافیایی"
+  mon: "دوشنبه"
+  name: "نام"
+  not_required: "ازم نیست"
+  organization: "سازمان عامل"
   operating_hours: 'ساعت های عامل'
-
+  sat: "شنبه"
+  save: "نجارت دادن"
+  sun: "یکشنبه"
+  tue: "سهشنبه"
+  thu: "پنج شنبه"
+  to: "تا اینکه"
+  wed: "چهار شنبه"
+  women_children: "زنان و کودکان"

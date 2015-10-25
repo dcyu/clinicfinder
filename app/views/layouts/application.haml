@@ -8,6 +8,12 @@
     = csrf_meta_tags
     %link{:href => "https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Montserrat:400,700", :rel => "stylesheet", :type => "text/css"}/
+    -if I18n.locale == :ar || I18n.locale == :fa
+      :css
+        body {
+          text-align: right;
+        }
+
   %body#page-top{"data-spy" => "scroll", "data-target" => ".navbar-fixed-top"}
     / Navigation
     %nav.navbar{:role => "navigation"}
@@ -26,19 +32,19 @@
                 %ul.dropdown-menu.dropdown-menu-right
                   -if I18n.locale == :ar
                     %li
-                      %a{:href => "?locale=en"} English
+                      %a{:href => "?locale=en", 'data-no-turbolink' => true} English
                     %li
-                      %a{:href => "?locale=fa"} فارسی
+                      %a{:href => "?locale=fa", 'data-no-turbolink' => true} فارسی
                   -elsif I18n.locale == :fa
                     %li
-                      %a{:href => "?locale=en"} English
+                      %a{:href => "?locale=en", 'data-no-turbolink' => true} English
                     %li
-                      %a{:href => "?locale=ar"} العربية
+                      %a{:href => "?locale=ar", 'data-no-turbolink' => true} العربية
                   -else
                     %li
-                      %a{:href => "?locale=ar"} العربية
+                      %a{:href => "?locale=ar", 'data-no-turbolink' => true} العربية
                     %li
-                      %a{:href => "?locale=fa"} فارسی
+                      %a{:href => "?locale=fa", 'data-no-turbolink' => true} فارسی
 
 
     - if notice
