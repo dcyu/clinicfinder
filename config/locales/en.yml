@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t 'hello'
+#     I18n.t "hello"
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t('hello') %>
+#     <%= t("hello") %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -20,10 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  address: 'Address'
+  address: "Address"
+  add_clinic: "Add Clinic →"
   all_clinics: "All Clinics"
+  all_welcome: "All Welcome"
   appointment: "Appointment"
   charged: "Charged"
+  country: "Country"
   cost: "Cost"
   current_location: "Current Location"
   eligibility: "Patient Eligibility"
@@ -32,13 +35,21 @@ en:
   fri: "Friday"
   list_of_clinics: "List of All Clinics"
   home_description: "ClinicFinder is a website to help find the nearest health clinic, specifically intended for refugees and displaced people enroute through Europe who require medical services."
-  km: 'km'
+  km: "km"
+  latitude: "Latitude"
+  longitude: "Longitude"
   mon: "Monday"
-  operating_hours: 'Operating Hours'
+  name: "Name"
+  not_required: "Not Required"
+  organization: "Operating Organization"
+  operating_hours: "Operating Hours"
   sat: "Saturday"
+  save: "Save"
   sun: "Sunday"
   tue: "Tuesday"
   thu: "Thursday"
+  to: "to"
   wed: "Wednesday"
+  women_children: "Women and Children"
 
 

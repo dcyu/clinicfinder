@@ -13,47 +13,48 @@
                   %li= msg
 
           .form-group
-            = f.label :name
+            = f.label :name, t('name')
             = f.text_field :name, class: "form-control"
           .form-group
-            = f.label :organization, "Operating Organization"
+            = f.label :organization, t('organization')
             = f.text_field :organization, class: "form-control"
           .form-group
-            = f.label :address
+            = f.label :address, t('address')
             = f.text_area :address, class: "form-control"
           .form-group
-            = f.label :lat, "Latitude"
+            = f.label :lat, t('latitude')
             = f.text_field :lat, class: "form-control"
           .form-group
-            = f.label :lng, "Longitude"
+            = f.label :lng, t('longitude')
             = f.text_field :lng, class: "form-control"
           .form-group
-            = f.label :country
+            = f.label :country, t('country')
             %br/
             = f.select :country, options_for_select(@countries), {}, {class: "form-control"}
           .form-group
-            = f.label :operating_hours
+            = f.label :operating_hours, t('operating_hours')
 
             = f.fields_for :shifts, @shifts do |s|
               .day
-                =s.check_box :day, { checked: true }, s.object.day, nil
+                =s.check_box :open
                 %span.day-label
                   =s.label :day, t(s.object.day)
 
                 =s.select :opening_time, options_for_select(@times, s.object.opening_time), {}, {class: "form-control time"}
-                to
+                =t('to')
                 =s.select :closing_time, options_for_select(@times, s.object.closing_time), {}, {class: "form-control time"}
+                =s.hidden_field :day, value: s.object.day
 
 
           .form-group
-            = f.label :cost
+            = f.label :cost, t('cost')
             = f.select :cost, options_for_select([[t("free"), "free"], [t("charged"), "charged"]]), {}, {class: "form-control"}
           .form-group
             = f.label :scheduling, t('appointment')
             = f.select :scheduling, options_for_select([[t("not_required"), "not_required"], [t("required"), "required"]]), {}, {class: "form-control"}
           .form-group
-            = f.label :eligibility
+            = f.label :eligibility, t('eligibility')
             = f.select :eligibility, options_for_select([[t("all_welcome"), "all_welcome"], [t("women_children"), "women_children"]]), {}, {class: "form-control"}
 
           .actions
-            = f.submit 'Save', class: "btn btn-success"
+            = f.submit t('save'), class: "btn btn-success"

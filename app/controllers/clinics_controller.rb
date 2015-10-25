@@ -22,7 +22,7 @@ class ClinicsController < ApplicationController
   # GET /clinics/1
   # GET /clinics/1.json
   def show
-
+    @shifts = @clinic.shifts.select{|s| s.open}
   end
 
   # GET /clinics/new
@@ -140,6 +140,6 @@ class ClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_params
-      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id])
+      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open])
     end
 end

@@ -18,7 +18,7 @@
         %br/
         %p
           %b=t('operating_hours')+':'
-          -@clinic.shifts.sort.each do |shift|
+          -@shifts.each do |shift|
             %span.shift
               #{t(shift.day)}, #{shift.opening_time}-#{shift.closing_time}
         %p
