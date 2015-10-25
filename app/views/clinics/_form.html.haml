@@ -33,7 +33,18 @@
             = f.select :country, options_for_select(@countries), {}, {class: "form-control"}
           .form-group
             = f.label :operating_hours
-            = f.text_area :operating_hours, class: "form-control"
+
+            = f.fields_for :shifts do |s|
+              .day
+                =s.check_box :day, { checked: true }, s.object.day, nil
+                %span.day-label
+                  =s.label :day, t(s.object.day)
+
+                =s.select :opening_time, options_for_select(@times), {}, {class: "form-control time"}
+                to
+                =s.select :closing_time, options_for_select(@times), {}, {class: "form-control time"}
+
+
           .form-group
             = f.label :cost
             = f.select :cost, options_for_select([[t("free"), "free"], [t("charged"), "charged"]]), {}, {class: "form-control"}

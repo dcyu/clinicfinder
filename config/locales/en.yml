@@ -29,8 +29,16 @@ en:
   eligibility: "Patient Eligibility"
   find_clinic: "Find Nearest Health Clinic"
   free: "Free"
+  fri: "Friday"
   list_of_clinics: "List of All Clinics"
   home_description: "ClinicFinder is a website to help find the nearest health clinic, specifically intended for refugees and displaced people enroute through Europe who require medical services."
   km: 'km'
+  mon: "Monday"
   operating_hours: 'Operating Hours'
+  sat: "Saturday"
+  sun: "Sunday"
+  tue: "Tuesday"
+  thu: "Thursday"
+  wed: "Wednesday"
+
 
