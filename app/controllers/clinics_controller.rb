@@ -1,6 +1,6 @@
 class ClinicsController < ApplicationController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
-  before_action :set_countries, only: [:new, :edit]
+  before_action :set_countries_and_time
 
 
   def home
@@ -29,19 +29,20 @@ class ClinicsController < ApplicationController
   def new
     @clinic = Clinic.new
 
-    @clinic.shifts.build(day: "mon")
-    @clinic.shifts.build(day: "tue")
-    @clinic.shifts.build(day: "wed")
-    @clinic.shifts.build(day: "thu")
-    @clinic.shifts.build(day: "fri")
-    @clinic.shifts.build(day: "sat")
-    @clinic.shifts.build(day: "sun")
-
-    @times = ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
+    @shifts = [
+      @clinic.shifts.build(day: "mon"),
+      @clinic.shifts.build(day: "tue"),
+      @clinic.shifts.build(day: "wed"),
+      @clinic.shifts.build(day: "thu"),
+      @clinic.shifts.build(day: "fri"),
+      @clinic.shifts.build(day: "sat"),
+      @clinic.shifts.build(day: "sun")
+    ]
   end
 
   # GET /clinics/1/edit
   def edit
+    @shifts = @clinic.shifts.sort
   end
 
   # POST /clinics
@@ -86,7 +87,9 @@ class ClinicsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_countries
+    def set_countries_and_time
+      @times = ["0:00", "1:00", "2:00", "3:00", "4:00", "5:00", "6:00", "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"]
+
       @countries = [
         [t(:AL, :scope => :countries), "AL"],
         [t(:AD, :scope => :countries), "AD"],

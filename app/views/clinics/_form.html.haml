@@ -34,26 +34,26 @@
           .form-group
             = f.label :operating_hours
 
-            = f.fields_for :shifts do |s|
+            = f.fields_for :shifts, @shifts do |s|
               .day
                 =s.check_box :day, { checked: true }, s.object.day, nil
                 %span.day-label
                   =s.label :day, t(s.object.day)
 
-                =s.select :opening_time, options_for_select(@times), {}, {class: "form-control time"}
+                =s.select :opening_time, options_for_select(@times, s.object.opening_time), {}, {class: "form-control time"}
                 to
-                =s.select :closing_time, options_for_select(@times), {}, {class: "form-control time"}
+                =s.select :closing_time, options_for_select(@times, s.object.closing_time), {}, {class: "form-control time"}
 
 
           .form-group
             = f.label :cost
             = f.select :cost, options_for_select([[t("free"), "free"], [t("charged"), "charged"]]), {}, {class: "form-control"}
           .form-group
-            = f.label :scheduling
-            = f.text_field :scheduling, class: "form-control"
+            = f.label :scheduling, t('appointment')
+            = f.select :scheduling, options_for_select([[t("not_required"), "not_required"], [t("required"), "required"]]), {}, {class: "form-control"}
           .form-group
             = f.label :eligibility
-            = f.text_field :eligibility, class: "form-control"
+            = f.select :eligibility, options_for_select([[t("all_welcome"), "all_welcome"], [t("women_children"), "women_children"]]), {}, {class: "form-control"}
 
           .actions
             = f.submit 'Save', class: "btn btn-success"
