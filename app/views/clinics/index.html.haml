@@ -1,4 +1,4 @@
-%h2=t('all_clinics')
+%h2=t('closest_clinics')
 
 -if @current_location
   %h4
@@ -20,6 +20,13 @@
 
   %ul.pagination
 
+.row
+  .col-md-12.text-center
+    %a.btn{:href => "#{new_clinic_path}"}
+      %h3
+        =t('add_clinic')
+
+
 :javascript
   var options = {
     valueNames: [ 'name', 'address', 'hours', 'distance' ],
@@ -28,4 +35,4 @@
 
   var userList = new List('clinics', options);
 
-= link_to 'Add New Clinic', new_clinic_path
+

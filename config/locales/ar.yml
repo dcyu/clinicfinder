@@ -6,6 +6,7 @@ ar:
   appointment: "موعد"
   charged: "مدفوع"
   clinic_clarifier: "(اسم العيادة)"
+  closest_clinics: "أقرب عيادات"
   cost: "ثمن"
   country: "بلد"
   current_location: "الموقع الحالي"

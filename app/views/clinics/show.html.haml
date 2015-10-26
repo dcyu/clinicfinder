@@ -17,14 +17,14 @@
 
         -if @clinic.organization.present?
           %p
-            %b Organization:
+            %b=t('organization')
             = @clinic.organization
           %br/
         %p
           %b=t('operating_hours')+':'
           -@shifts.each do |shift|
             %span.shift
-              %span.day
+              %span.days
                 =t(shift.day)
               %span.times
                 #{shift.opening_time}-#{shift.closing_time}

@@ -95,7 +95,7 @@ class ClinicsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_countries_and_time
-      @times = ["0:00", "0:30", "1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30", "5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30"]
+      @times = ["0:00", "0:30", "1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00", "4:30", "5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30", "23:00", "23:30", "24:00"]
 
       @countries = [
         [t(:AL, :scope => :countries), "AL"],
@@ -108,10 +108,13 @@ class ClinicsController < ApplicationController
         [t(:HR, :scope => :countries), "HR"],
         [t(:CY, :scope => :countries), "CY"],
         [t(:CZ, :scope => :countries), "CZ"],
+        [t(:DK, :scope => :countries), "DK"],
         [t(:EE, :scope => :countries), "EE"],
         [t(:FO, :scope => :countries), "FO"],
         [t(:FI, :scope => :countries), "FI"],
         [t(:FR, :scope => :countries), "FR"],
+        [t(:GE, :scope => :countries), "GE"],
+        [t(:DE, :scope => :countries), "DE"],
         [t(:GR, :scope => :countries), "GR"],
         [t(:HU, :scope => :countries), "HU"],
         [t(:IS, :scope => :countries), "IS"],
@@ -132,12 +135,18 @@ class ClinicsController < ApplicationController
         [t(:PT, :scope => :countries), "PT"],
         [t(:RO, :scope => :countries), "RO"],
         [t(:RU, :scope => :countries), "RU"],
+        [t(:RS, :scope => :countries), "RS"],
         [t(:SM, :scope => :countries), "SM"],
         [t(:RS, :scope => :countries), "RS"],
         [t(:SK, :scope => :countries), "SK"],
         [t(:SI, :scope => :countries), "SI"],
+        [t(:ES, :scope => :countries), "ES"],
+        [t(:SE, :scope => :countries), "SE"],
         [t(:CH, :scope => :countries), "CH"],
+        [t(:TR, :scope => :countries), "TR"],
+        [t(:UA, :scope => :countries), "UA"],
         [t(:GB, :scope => :countries), "GB"],
+        [t(:VA, :scope => :countries), "VA"],
       ]
     end 
 

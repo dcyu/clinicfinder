@@ -6,6 +6,7 @@ en:
   appointment: "Appointment"
   charged: "Charged"
   clinic_clarifier: ""
+  closest_clinics: "Closest Clinics"
   cost: "Cost"
   country: "Country"
   current_location: "Current Location"
