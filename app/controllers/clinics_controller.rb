@@ -12,8 +12,7 @@ class ClinicsController < ApplicationController
     require 'geoip'
 
     @clinics = Clinic.all
-    # user_ip = request.remote_ip
-    user_ip = "50.249.25.145"
+    user_ip = request.remote_ip
 
     @current_location = GeoIP.new('GeoLiteCity.dat').city(user_ip)
 
