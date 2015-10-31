@@ -1,0 +1,23 @@
+%h1 Listing capabilities
+
+%table
+  %thead
+    %tr
+      %th Topic
+      %th Clinic
+      %th
+      %th
+      %th
+
+  %tbody
+    - @capabilities.each do |capability|
+      %tr
+        %td= capability.topic_id
+        %td= capability.clinic_id
+        %td= link_to 'Show', capability
+        %td= link_to 'Edit', edit_capability_path(capability)
+        %td= link_to 'Destroy', capability, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Capability', new_capability_path

@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Topic:
+  = @capability.topic_id
+%p
+  %b Clinic:
+  = @capability.clinic_id
+
+= link_to 'Edit', edit_capability_path(@capability)
+\|
+= link_to 'Back', capabilities_path

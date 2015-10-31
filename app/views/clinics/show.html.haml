@@ -29,6 +29,12 @@
               %span.times
                 #{shift.opening_time}-#{shift.closing_time}
         %p
+          %b=t('services_offered')+':'
+          -@capabilities.each do |c|
+            %span.shift
+              %span.days
+                =t(c.topic.name)
+        %p
           %b=t('cost')+':'
           =t(@clinic.cost)
         %p

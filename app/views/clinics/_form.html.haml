@@ -43,6 +43,18 @@
                 =s.select :closing_time, options_for_select(@times, s.object.closing_time), {}, {class: "form-control time"}
                 =s.hidden_field :day, value: s.object.day
 
+          .form-group
+            = f.label :services_offered, t('services_offered')
+
+            = f.fields_for :capabilities, @capabilities do |c|
+              .day
+                =c.check_box :available
+                %span.day-label
+                  =c.label :day, t(c.object.topic.name)
+
+                =c.hidden_field :clinic_id, value: @clinic.id
+                =c.hidden_field :topic_id, value: c.object.topic.id
+
 
           .form-group
             = f.label :cost, t('cost')

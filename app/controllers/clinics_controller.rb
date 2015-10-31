@@ -29,6 +29,7 @@ class ClinicsController < ApplicationController
   # GET /clinics/1.json
   def show
     @shifts = @clinic.shifts.select{|s| s.open}
+    @capabilities = @clinic.capabilities.select{|c| c.available}
   end
 
   # GET /clinics/new
@@ -44,11 +45,18 @@ class ClinicsController < ApplicationController
       @clinic.shifts.build(day: "sat"),
       @clinic.shifts.build(day: "sun")
     ]
+
+    @capabilities = []
+
+    Topic.all.each do |topic|
+      @capabilities << @clinic.capabilities.build(topic_id: topic.id)
+    end
   end
 
   # GET /clinics/1/edit
   def edit
     @shifts = @clinic.shifts.sort
+    @capabilities = @clinic.capabilities.sort
   end
 
   # POST /clinics
@@ -155,6 +163,6 @@ class ClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_params
-      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open])
+      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open], capabilities_attributes: [:id, :clinic_id, :topic_id, :available])
     end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :capabilities
+  resources :topics
   resources :clinics
 
   get 'home' => 'clinics#home', as: :home

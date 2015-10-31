@@ -1,0 +1,16 @@
+= form_for @capability do |f|
+  - if @capability.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@capability.errors.count, "error")} prohibited this capability from being saved:"
+      %ul
+        - @capability.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :topic_id
+    = f.number_field :topic_id
+  .field
+    = f.label :clinic_id
+    = f.number_field :clinic_id
+  .actions
+    = f.submit 'Save'
