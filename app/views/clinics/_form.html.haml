@@ -41,7 +41,23 @@
                 =s.select :opening_time, options_for_select(@times, s.object.opening_time), {}, {class: "form-control time"}
                 =t('to')
                 =s.select :closing_time, options_for_select(@times, s.object.closing_time), {}, {class: "form-control time"}
+
+                -if s.object.opening_time2.blank?
+                  %a.show-times{:href => "#"} Add Additional Shift
+                  %span.additional
+                    =t('and')
+                    =s.select :opening_time2, options_for_select(@times, s.object.opening_time2), {include_blank: true}, {class: "form-control time"}
+                    =t('to')
+                    =s.select :closing_time2, options_for_select(@times, s.object.closing_time2), {include_blank: true}, {class: "form-control time"}
+
+                -else
+                  and
+                  =s.select :opening_time2, options_for_select(@times, s.object.opening_time2), {include_blank: true}, {class: "form-control time"}
+                  =t('to')
+                  =s.select :closing_time2, options_for_select(@times, s.object.closing_time2), {include_blank: true}, {class: "form-control time"}
+
                 =s.hidden_field :day, value: s.object.day
+
 
           .form-group
             = f.label :services_offered, t('services_offered')
@@ -68,3 +84,9 @@
 
           .actions
             = f.submit t('save'), class: "btn btn-success"
+
+:coffeescript
+  $('.show-times').click (e) ->
+    e.preventDefault()
+    $(this).next('.additional').show()
+    $(this).hide()

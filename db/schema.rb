@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027202733) do
+ActiveRecord::Schema.define(version: 20151031231711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20151027202733) do
     t.string  "closing_time"
     t.integer "clinic_id"
     t.boolean "open"
+    t.string  "opening_time2"
+    t.string  "closing_time2"
   end
 
   create_table "topics", force: :cascade do |t|

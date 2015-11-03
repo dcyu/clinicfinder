@@ -28,6 +28,10 @@
                 =t(shift.day)
               %span.times
                 #{shift.opening_time}-#{shift.closing_time}
+                -if shift.opening_time2.present?
+                  =t('and')
+                  #{shift.opening_time2}-#{shift.closing_time2}
+
         %p
           %b=t('services_offered')+':'
           -@capabilities.each do |c|

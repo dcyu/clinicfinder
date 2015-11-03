@@ -56,7 +56,14 @@ class ClinicsController < ApplicationController
   # GET /clinics/1/edit
   def edit
     @shifts = @clinic.shifts.sort
-    @capabilities = @clinic.capabilities.sort
+    @capabilities = @clinic.capabilities
+
+    Topic.all.each do |topic|
+      unless @clinic.topics.include?(topic)
+        @capabilities << @clinic.capabilities.build(topic_id: topic.id)
+      end
+    end
+
   end
 
   # POST /clinics
@@ -163,6 +170,6 @@ class ClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_params
-      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open], capabilities_attributes: [:id, :clinic_id, :topic_id, :available])
+      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :cost, :scheduling, :eligibility, :country, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open, :opening_time2, :closing_time2], capabilities_attributes: [:id, :clinic_id, :topic_id, :available])
     end
 end
