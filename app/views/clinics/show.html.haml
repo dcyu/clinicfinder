@@ -20,6 +20,13 @@
             %b=t('organization')+':'
             = @clinic.organization
           %br/
+
+        -if @clinic.phone.present?
+          %p
+            %b=t('phone_number')+':'
+            = @clinic.phone
+          %br/
+
         %p
           %b=t('operating_hours')+':'
           -@shifts.each do |shift|

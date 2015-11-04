@@ -17,6 +17,9 @@
             = f.label :organization, t('organization')
             = f.text_field :organization, class: "form-control"
           .form-group
+            = f.label :phone, "Phone Number (please use international format, ex. +442071234567)"
+            = f.text_field :phone, class: "form-control"
+          .form-group
             = f.label :address, t('address')
             = f.text_area :address, class: "form-control"
           .form-group
