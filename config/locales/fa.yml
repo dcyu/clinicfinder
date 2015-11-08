@@ -27,6 +27,7 @@ fa:
   required: "مورد نیاز"
   sat: "شنبه"
   save: "نجارت دادن"
+  services_offered: "خدمات ارائه شده"
   sun: "یکشنبه"
   tue: "سهشنبه"
   thu: "پنج شنبه"

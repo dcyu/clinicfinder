@@ -27,6 +27,7 @@ ar:
   required: "مطلوب"
   sat: "السبت"
   save: "حفظ"
+  services_offered: "الخدمات المقدمة"
   sun: "الأحد"
   tue: "الثلاثاء"
   thu: "الخميس"

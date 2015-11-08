@@ -38,6 +38,8 @@
                 -if shift.opening_time2.present?
                   =t('and')
                   #{shift.opening_time2}-#{shift.closing_time2}
+          -if @shifts.empty?
+            %p.shift=t('call_clinic_hours')
 
         %p
           %b=t('services_offered')+':'
