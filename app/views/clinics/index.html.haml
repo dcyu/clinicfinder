@@ -3,7 +3,10 @@
 -if @current_location
   %h4
     =t('current_location')+':'
-    #{@current_location.city_name}, #{@current_location.country_name}
+    #{@current_location.first}, #{@current_location.last}
+
+#map
+=render 'index_map'
 
 #clinics
   / %input.search{:placeholder => "Search"}/

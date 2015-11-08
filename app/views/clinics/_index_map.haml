@@ -1,0 +1,60 @@
+%script{:src => "https://maps.googleapis.com/maps/api/js?key=#{ENV["google_key"]}&sensor=false&language=#{params[:locale]}", :type => "text/javascript"}
+
+
+%script
+  google.maps.event.addDomListener(window, 'load', init);
+
+  function init() {
+  // Basic options for a simple Google Map
+  // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+  var mapOptions = {
+  // How zoomed in you want the map to start at (always required)
+  zoom: 9,
+
+  // The latitude and longitude to center the map (always required)
+  -if @lat_lng
+    center: new google.maps.LatLng(#{@lat_lng.first}, #{@lat_lng.last}),
+  -else
+    center: new google.maps.LatLng(#{@lat_lng.first}, #{@lat_lng.last}),
+
+  // Disables the default Google Maps UI components
+  disableDefaultUI: true,
+  scrollwheel: false,
+  draggable: true,
+  zoomControl: true,
+  scaleControl: true
+  }
+
+  // How you would like to style the map. 
+  // This is where you would paste any style found on Snazzy Maps.
+  
+
+  // Get the HTML DOM element that will contain your map 
+  // We are using a div with id="map" seen below in the <body>
+  var mapElement = document.getElementById('map');
+
+  // Create the Google Map using out element and options defined above
+  var map = new google.maps.Map(mapElement, mapOptions);
+
+  // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
+  -if @lat_lng
+    var location_marker = new google.maps.Marker({
+    position: new google.maps.LatLng("#{@lat_lng.first}", #{@lat_lng.last}),
+    map: map,
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    });
+
+
+  -@clinics_sorted_by_distance.each_with_index do |clinic, index|
+    var marker#{index} = new google.maps.Marker({
+    position: new google.maps.LatLng("#{clinic.first.lat}", #{clinic.first.lng}),
+    map: map,
+    label: "#{index + 1}",
+    url: "#{clinic_url(clinic.first)}"
+    });
+
+    google.maps.event.addListener(marker#{index}, "click", function () {
+    location.assign(marker#{index}.url);
+    });
+
+  }
