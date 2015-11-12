@@ -34,6 +34,14 @@
   var map = new google.maps.Map(mapElement, mapOptions);
 
   // Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
+  -if @lat_lng
+    var location_marker = new google.maps.Marker({
+    position: new google.maps.LatLng("#{@lat_lng.first}", #{@lat_lng.last}),
+    map: map,
+    icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    });
+
+
   var myLatLng = new google.maps.LatLng("#{@clinic.lat}", #{@clinic.lng});
   var marker#{@clinic.id} = new google.maps.Marker({
   position: myLatLng,

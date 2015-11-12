@@ -26,7 +26,11 @@
             .navlink.pull-left
               =link_to "ClinicFinder", root_path
             
+
+            
             .navlink.pull-right.languages
+              -if current_admin
+                =link_to "Logout", destroy_admin_session_path, :class => 'btn btn-primary logout'
               .btn-group
                 %button.btn.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
                   %i.fa.fa-language.fa-4x

@@ -7,10 +7,14 @@ class ClinicsController < ApplicationController
   def home
   end
 
+  def about
+  end
+
   # GET /clinics
   # GET /clinics.json
   def index
-    @clinics = Clinic.all
+    @unverified_clinics = Clinic.where(verified: nil) + Clinic.where(verified: false)
+    @clinics = Clinic.where(verified: true)
     @clinics_sorted_by_distance = []
 
     if @lat_lng
@@ -186,6 +190,6 @@ class ClinicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinic_params
-      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :phone, :cost, :scheduling, :eligibility, :country, :contact_name, :contact_email, :contact_phone, :additional_info, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open, :opening_time2, :closing_time2], capabilities_attributes: [:id, :clinic_id, :topic_id, :available])
+      params.require(:clinic).permit(:name, :organization, :lat, :lng, :address, :operating_hours, :phone, :cost, :scheduling, :eligibility, :country, :contact_name, :contact_email, :contact_phone, :additional_info, :verified, shifts_attributes: [:id, :day, :opening_time, :closing_time, :clinic_id, :open, :opening_time2, :closing_time2], capabilities_attributes: [:id, :clinic_id, :topic_id, :available])
     end
 end

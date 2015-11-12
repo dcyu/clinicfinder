@@ -1,6 +1,6 @@
 .row
   .col-md-12.text-center
-    %a.btn.btn-primary.btn-large{:href => "#{clinics_path}"}
+    %a.btn.btn-primary.btn-large{:href => "#{clinics_path}", 'data-no-turbolink' => true}
       %h3
         =t('find_clinic')
 
@@ -8,8 +8,8 @@
 %br/
 .row
   .col-md-12.text-center
-    %a.btn.btn-info.btn-large{:href => "#{clinics_path}"}
-      %h3=t('list_of_clinics')
+    %a.btn.btn-info.btn-large{:href => "#{clinics_path}", 'data-no-turbolink' => true}
+      %h3 Find Clinic By Service
 
 
 %br/
@@ -24,6 +24,6 @@
 %br/
 .row
   .col-md-12.text-center
-    %a.btn{:href => "#{new_clinic_path}"}
+    %a.btn.btn-primary{:href => "#{new_clinic_path}"}
       %h3
         =t('add_clinic')

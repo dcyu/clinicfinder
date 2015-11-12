@@ -1,6 +1,13 @@
-%h2
-  =@clinic.name
-  =t('clinic_clarifier')
+.row
+  .col-md-12
+    .pull-left
+      %h2
+        =@clinic.name
+        =t('clinic_clarifier')
+    .pull-right
+      %a.btn.btn-info.btn-large{:href => "#{clinics_path}", 'data-no-turbolink' => true}
+        Back to Clinics List
+
 
 #map
 =render 'map'
@@ -56,6 +63,14 @@
 
 .row
   .col-md-12.text-center
-    %a.btn{:href => "#{edit_clinic_path(@clinic)}"}
+    %a.btn.btn-primary{:href => "#{edit_clinic_path(@clinic)}"}
       %h3
         =t('edit_clinic')
+
+-if current_admin
+  %br/
+  .row
+    .col-md-12.text-center
+      %a.btn.btn-primary{:href => "#{clinic_path(@clinic)}", :data => { :confirm => 'Are you sure?', method: :delete }}
+        %h3
+          Delete Clinic

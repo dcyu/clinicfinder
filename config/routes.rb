@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admins
   resources :capabilities
   resources :topics
   resources :clinics
 
   get 'home' => 'clinics#home', as: :home
+  
+  get 'about' => 'clinics#about', as: :about
 
 
   # The priority is based upon order of creation: first created -> highest priority.
