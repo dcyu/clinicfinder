@@ -12,7 +12,7 @@
   zoom: 9,
 
   // The latitude and longitude to center the map (always required)
-  -if @lat_lng
+  -if !@lat_lng.empty?
     center: new google.maps.LatLng(#{@lat_lng.first}, #{@lat_lng.last}),
   -else
     center: new google.maps.LatLng(#{@lat_lng.first}, #{@lat_lng.last}),
