@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :clinics
 
   get 'home' => 'clinics#home', as: :home
-  
   get 'about' => 'clinics#about', as: :about
+  get 'select_topic' => 'clinics#select_topic', as: :select_topic
 
 
   # The priority is based upon order of creation: first created -> highest priority.

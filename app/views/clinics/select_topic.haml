@@ -1,0 +1,10 @@
+%h2.text-center Select Clinic Service
+
+-@topics.each do |topic|
+  %br/
+  .row
+    .col-md-12.text-center
+      %a.btn.btn-primary.btn-large{:href => "#{clinics_path}&topic=#{topic.name}", 'data-no-turbolink' => true}
+        %h3
+          =t(topic.name)
+  %br/

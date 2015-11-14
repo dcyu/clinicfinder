@@ -1,4 +1,4 @@
--if current_admin
+-if current_admin && @unverified_clinics.present?
   %h2 Unverified Clinics
 
   %ul.list
@@ -10,12 +10,32 @@
 
 
 
-%h2=t('closest_clinics')
+%h2
+  =t('closest_clinics')
+  -if params[:topic]
+    for
+    =t(params[:topic])
+
+%br/
+.row.filter-topics
+  .col-md-12
+    %span
+      Click to filter by service:
+    -Topic.all.each do |topic|
+      %a.btn.btn-primary{:href => "#{clinics_path}&topic=#{topic.name}", 'data-no-turbolink' => true}
+        =t(topic.name)
+
+%br/
 
 -if @current_location
   %h4
     =t('current_location')+':'
     #{@current_location.first}, #{@current_location.last}
+
+%br/
+
+
+
 
 #map
 =render 'index_map'

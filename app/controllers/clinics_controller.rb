@@ -10,11 +10,21 @@ class ClinicsController < ApplicationController
   def about
   end
 
+  def select_topic
+    @topics = Topic.all
+  end
+
   # GET /clinics
   # GET /clinics.json
   def index
     @unverified_clinics = Clinic.where(verified: nil) + Clinic.where(verified: false)
-    @clinics = Clinic.where(verified: true)
+
+    if params[:topic].present?
+      @clinics = Topic.find_by(name: params[:topic]).available_clinics.select{|clinic| clinic.verified}
+    else
+      @clinics = Clinic.where(verified: true)
+    end
+
     @clinics_sorted_by_distance = []
 
     if @lat_lng
@@ -23,7 +33,7 @@ class ClinicsController < ApplicationController
       @clinics.each do |clinic|
         @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([@lat_lng.first, @lat_lng.last], [clinic.lat, clinic.lng], :units => :km).round(2)]
       end
-      if location.city
+      if location && location.city
         @current_location = [location.city, location.country]
       end
     else
