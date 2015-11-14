@@ -23,7 +23,9 @@ class ClinicsController < ApplicationController
       @clinics.each do |clinic|
         @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([@lat_lng.first, @lat_lng.last], [clinic.lat, clinic.lng], :units => :km).round(2)]
       end
-      @current_location = [location.city, location.country]
+      if location.city
+        @current_location = [location.city, location.country]
+      end
     else
       user_ip = request.remote_ip
 
