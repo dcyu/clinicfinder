@@ -15,7 +15,7 @@
   -if @lat_lng.present? && @lat_lng.first
     center: new google.maps.LatLng(#{@lat_lng.first}, #{@lat_lng.last}),
   -else
-    center: new google.maps.LatLng(#{@clinics_sorted_by_distance.first.lat}, #{@clinics_sorted_by_distance.first.lng}),
+    center: new google.maps.LatLng(#{@clinics_sorted_by_distance.first.first.lat}, #{@clinics_sorted_by_distance.first.first.lng}),
 
   // Disables the default Google Maps UI components
   disableDefaultUI: true,
