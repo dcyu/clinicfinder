@@ -1,3 +1,105 @@
 .row
   .col-md-12.text-center
     %h1 About ClinicFinder
+    %br/
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p
+          ClinicFinder is a website for refugees and people on the move designed to provide information about free healthcare and medical services. 
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p
+          It provides key information about the nearest health clinic based on your location. The
+          %a{:href => "#{select_topic_path}", 'data-no-turbolink' => true}
+            Find Clinic By Service
+          button can be used if you need a specific service, for example if you are pregnant or have an unwell child.
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p
+          If you want to find out more about a health problem you can also visit the 
+          %a{:href => "http://www.nhs.uk/conditions/Pages/hub.aspx", target: "_blank"}
+            National Health Service website,
+          which has information available in over 80 languages.
+  
+  %br/
+  .col-md-12
+    %h2
+      Are you an NGO?
+
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+  
+        %p
+          You can help us make a real difference to the lives of thousands. 
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p
+          If you are aware of a service that can offer free healthcare and medical aid, we encourage you to use the
+          %a{:href => "#{new_clinic_path}"}
+            Add Clinic
+          function. We will then simply double-check the details you have entered before making it visible to everyone.
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p
+          The website will use information from a variety of organisations, recognising that in order to be truly effective there must be a collaborative effort.
+  
+  %br/
+  .col-md-12
+    %h2
+      Who We Are
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p.center-text
+          %a.img{:href => "https://www.doctorsoftheworld.org.uk/", target: "_blank"}
+            =image_tag "mdm.png"
+            Doctors of the World UK
+
+        %p
+          Doctors of the World UK, part of the international Médecins du Monde network, believes in a world in which all vulnerable people receive healthcare whether they are affected by poverty, exclusion, war, natural disasters or disease. As a whole, Médecins du Monde operates over 300 projects in more than 70 countries to increase access to health services to those in need. 
+  
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p.center-text
+          %a.img{:href => "http://www.reliefwatch.com"}
+            =image_tag "danyu.png"
+            Daniel Yu
+
+        %p
+          Daniel Yu is the founder and CEO of 
+          %a{:href => "http://www.reliefwatch.com"}
+            Reliefwatch, 
+          a platform for organizations in the developing world to track supplies through basic mobile phones. Daniel developed the idea behind Reliefwatch while living in Sinai, Egypt and northern Jordan where he witnessed availability issues for basic products. Prior to founding Reliefwatch, Daniel worked as a programmer and Chief Technical Officer for several early-stage startups in New York and Chicago and attended the University of Chicago where he focused on International Studies and Arabic.
+  
+  %br/
+  .col-md-12   
+    %h2 Questions?
+
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p.center-text
+          For any questions or to find out more please contact Tom McKenzie at
+          = mail_to 'tmckenzie@doctorsoftheworld.org.uk', nil, encode: "javascript"
+          \.
+
+  .col-md-12   
+    .panel.panel-info
+      .panel-body
+        %p.center-text
+          To report any technical issues with the website please contact Daniel Yu at
+          = mail_to 'daniel@reliefwatch.com', nil, encode: "javascript"
+          \.

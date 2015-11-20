@@ -9,7 +9,8 @@
 .row
   .col-md-12.text-center
     %a.btn.btn-info.btn-large{:href => "#{select_topic_path}", 'data-no-turbolink' => true}
-      %h3 Find Clinic By Service
+      %h3
+        =t('find_clinic_by_service') 
 
 
 %br/
@@ -18,12 +19,15 @@
   .col-md-6.col-md-offset-3    
     .panel.panel-info
       .panel-body
-        %h4=t('home_description') 
+        %h4.text-center
+          =t('emergency_call_instructions')
+          
 
 %br/
 %br/
 .row
   .col-md-12.text-center
-    %a.btn.btn-primary{:href => "#{new_clinic_path}"}
-      %h3
-        =t('add_clinic')
+    %h3 Want to help? Contribute essential info now.
+    %a.btn.btn-primary{:href => "#{about_path}"}
+      %h4
+        =t('learn')
