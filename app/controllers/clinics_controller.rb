@@ -31,7 +31,7 @@ class ClinicsController < ApplicationController
       location = Geocoder.search(@lat_lng).first
 
       @clinics.each do |clinic|
-        @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([@lat_lng.first, @lat_lng.last], [clinic.lat, clinic.lng], :units => :km).round(2)]
+        @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([@lat_lng.first, @lat_lng.last], [clinic.lat, clinic.lng], :units => :km).round(1)]
       end
       if location && location.city
         @current_location = [location.city, location.country]

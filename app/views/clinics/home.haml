@@ -27,15 +27,17 @@
 %br/
 .row
   .col-md-12.text-center
-    %h3 Want to help?
+    %h3=t('want_help')
     %br/
     %a.btn.btn-primary{:href => "#{about_path}"}
       %h4
         =t('learn')
     %br/
     %br/
-    %a.btn.btn-info{:href => "#{new_clinic_path}"}
-      %h4
-        =t('add_clinic')
-    %br/
-    %br/
+    -unless locale == :ar || locale == :fa
+
+      %a.btn.btn-info{:href => "#{new_clinic_path}"}
+        %h4
+          =t('add_clinic')
+      %br/
+      %br/

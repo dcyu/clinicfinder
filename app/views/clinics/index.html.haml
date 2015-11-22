@@ -13,14 +13,14 @@
 %h2
   =t('closest_clinics')
   -if params[:topic]
-    for
+    =t('for')
     =t(params[:topic])
 
 %br/
 .row.filter-topics
   .col-md-12
     %span
-      Click to filter by service:
+      =t('click_to_filter')+':'
     -Topic.all.each do |topic|
       %a.btn.btn-primary{:href => "#{clinics_path}&topic=#{topic.name}", 'data-no-turbolink' => true}
         =t(topic.name)
@@ -57,9 +57,12 @@
 
 .row
   .col-md-12.text-center
-    %a.btn.btn-primary{:href => "#{new_clinic_path}"}
-      %h3
+    %h3=t('clinics_not_listed')
+    %a.btn.btn-info{:href => "#{new_clinic_path}"}
+      %h4
         =t('add_clinic')
+    %br/
+    %br/
 
 
 :javascript
