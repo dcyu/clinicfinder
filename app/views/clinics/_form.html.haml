@@ -17,7 +17,7 @@
             = f.label :organization, t('organization')
             = f.text_field :organization, class: "form-control"
           .form-group
-            = f.label :phone, "Phone Number (please use international format, ex. +442071234567)"
+            = f.label :phone, t('phone_number')
             = f.text_field :phone, class: "form-control"
           .form-group
             = f.label :address, t('address')
@@ -46,7 +46,9 @@
                 =s.select :closing_time, options_for_select(@times, s.object.closing_time), {}, {class: "form-control time"}
 
                 -if s.object.opening_time2.blank?
-                  %a.show-times{:href => "#"} Add Additional Shift
+                  %a.show-times{:href => "#"} 
+                    =t('add_shift')
+                    
                   %span.additional
                     =t('and')
                     =s.select :opening_time2, options_for_select(@times, s.object.opening_time2), {include_blank: true}, {class: "form-control time"}
@@ -82,16 +84,16 @@
             = f.label :scheduling, t('appointment')
             = f.select :scheduling, options_for_select([[t("not_required"), "not_required"], [t("required"), "required"]]), {}, {class: "form-control"}
           .form-group
-            = f.label :contact_name, "Clinic Contact Name"
+            = f.label :contact_name, t('clinic_contact_name')
             = f.text_field :contact_name, class: "form-control"
           .form-group
-            = f.label :contact_email, "Clinic Contact Email Address"
+            = f.label :contact_email, t('clinic_contact_email')
             = f.text_field :contact_email, class: "form-control"
           .form-group
-            = f.label :contact_phone, "Clinic Contact Phone Number (please use international format, ex. +442071234567)"
+            = f.label :contact_phone, t('clinic_contact_phone')
             = f.text_field :contact_phone, class: "form-control"
           .form-group
-            = f.label :additional_info, "Additional Information"
+            = f.label :additional_info, t('additional_info')
             = f.text_area :additional_info, class: "form-control"
 
           -if current_admin
