@@ -2,6 +2,8 @@ class ClinicsController < ApplicationController
   before_action :set_clinic, only: [:show, :edit, :update, :destroy]
   before_action :set_countries_and_time
   before_action :set_location
+  before_filter :authenticate_admin!, only: [:edit, :update, :destroy]
+
 
 
   def home

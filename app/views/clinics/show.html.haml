@@ -6,8 +6,7 @@
         =t('clinic_clarifier')
     .pull-right
       %a.btn.btn-info.btn-large{:href => "#{clinics_path}", 'data-no-turbolink' => true}
-        Back to Clinics List
-
+        =t('back_to_list')
 
 #map
 =render 'map'
@@ -61,16 +60,27 @@
           %b=t('appointment')+':'
           =t(@clinic.scheduling)
 
-.row
-  .col-md-12.text-center
-    %a.btn.btn-primary{:href => "#{edit_clinic_path(@clinic)}"}
-      %h3
-        =t('edit_clinic')
 
 -if current_admin
+  .row
+    .col-md-12.text-center
+      %a.btn.btn-primary{:href => "#{edit_clinic_path(@clinic)}"}
+        %h3
+          =t('edit_clinic')
+
   %br/
   .row
     .col-md-12.text-center
       %a.btn.btn-primary{:href => "#{clinic_path(@clinic)}", :data => { :confirm => 'Are you sure?', method: :delete }}
         %h3
           Delete Clinic
+-else
+  .row
+    .col-md-6.col-md-offset-3    
+      .panel.panel-info
+        .panel-body
+          %h4.text-center
+            =t('incorrect_info')
+            %span.gold
+              = mail_to 'tmckenzie@doctorsoftheworld.org.uk', nil, encode: "javascript"
+            =t('incorrect_info2')
