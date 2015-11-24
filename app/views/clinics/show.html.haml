@@ -27,10 +27,10 @@
             = @clinic.organization
           %br/
 
-        -if @clinic.phone.present?
+        -if @clinic.contact_phone.present?
           %p
             %b=t('phone_number')+':'
-            = @clinic.phone
+            = @clinic.contact_phone
           %br/
 
         %p
