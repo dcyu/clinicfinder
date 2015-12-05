@@ -4,7 +4,8 @@ class ClinicsController < ApplicationController
   before_action :set_location
   before_filter :authenticate_admin!, only: [:edit, :update, :destroy]
 
-
+  def csv
+  end
 
   def home
   end
@@ -43,13 +44,31 @@ class ClinicsController < ApplicationController
 
       location = GeoIP.new('GeoLiteCity.dat').city(user_ip)
 
-      @clinics.each do |clinic|
-        @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([location.latitude, location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)]
+      if location
+        @clinics.each do |clinic|
+          @clinics_sorted_by_distance << [clinic, Geocoder::Calculations.distance_between([location.latitude, location.longitude], [clinic.lat, clinic.lng], :units => :km).round(2)]
+        end
+        @current_location = [location.city_name, location.country_name]
+      else
+        @clinics.each do |clinic|
+          @clinics_sorted_by_distance << [clinic, 0]
+        end
       end
-      @current_location = [location.city_name, location.country_name]
     end
 
     @clinics_sorted_by_distance.sort_by!{|clinic| clinic.last}
+
+    respond_to do |format|
+      format.html
+
+      format.csv do
+        headers['Content-Disposition'] = "attachment; filename=\"ClinicFinder Clinics\".csv"
+        headers['Content-Type'] ||= 'text/csv'
+
+        render layout: false
+      end
+
+    end
   end
 
   # GET /clinics/1

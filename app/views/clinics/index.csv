@@ -1,0 +1,5 @@
+<%- headers = ['Clinic Name', 'Verified', 'Latitude', 'Longitude', 'Address', 'Country', 'Organization', 'Contact Name', 'Contact Email', 'Contact Phone Number', 'Operating Hours', 'Services Offered', 'Cost', 'Appointments'] -%>
+<%= CSV.generate_line headers %>
+<%- @clinics.each do |clinic| -%>
+  <%= CSV.generate_line([clinic.name, clinic.verified ? "Yes" : "No", clinic.lat, clinic.lng, clinic.address, t(clinic.country, :scope => :countries), clinic.organization, clinic.contact_name, clinic.contact_email, clinic.contact_phone, clinic.shifts.select{|s| s.open}.map{|s| "#{s.day}: #{s.opening_time}-#{s.closing_time} #{s.opening_time2}-#{s.closing_time2}"}, clinic.capabilities.select{|c| c.available}.map{|c| t(c.topic.name)}, t(clinic.cost), t(clinic.scheduling)]).strip.html_safe %>
+<%- end -%>

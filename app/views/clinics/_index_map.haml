@@ -49,7 +49,6 @@
     var marker#{index} = new google.maps.Marker({
     position: new google.maps.LatLng("#{clinic.first.lat}", #{clinic.first.lng}),
     map: map,
-    label: "#{index + 1}",
     url: "#{clinic_url(clinic.first)}"
     });
 
